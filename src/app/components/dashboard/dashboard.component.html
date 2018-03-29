@@ -1,0 +1,6 @@
+<div class="container">
+  <tabset>
+    <app-my-request-list></app-my-request-list>
+    <app-pending-request-list *ngIf="canApprove"></app-pending-request-list>
+  </tabset>
+</div>

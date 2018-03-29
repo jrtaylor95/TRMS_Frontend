@@ -1,0 +1,92 @@
+<form action="" method="post">
+  <div class="form-group">
+    <label for="input_employeeEmail">Email</label>
+    <input [(ngModel)]="employeeEmail" class="form-control" type="email" name="input_employeeEmail" id="input_emlployeeEmail"
+      placeholder="me@example.com" required>
+  </div>
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col">
+        <label for="input_employeeFirstName">First Name</label>
+        <input [(ngModel)]="employeeFirstName" class="form-control" type="text" name="input_employeeFirstName" id="input_employeeFirstName"
+          placeholder="John" required>
+      </div>
+      <div class="col">
+        <label for="input_employeeLastName">Last Name</label>
+        <input [(ngModel)]="employeeLastName" class="form-control" type="text" name="input_employeeLastName" id="input_employeeLastName"
+          placeholder="Smith" required>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="input_eventDate">Date</label>
+    <input [(ngModel)]="eventDate" class="form-control" type="date" name="input_eventDate" id="input_eventDate" placeholder="mm/dd/yyyy"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="input_eventTime">Time</label>
+    <input [(ngModel)]="eventTime" class="form-control" type="time" name="input_eventTime" id="input_eventTime" placeholder="hh:mm ss"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="input_eventLocation">Location</label>
+    <input [(ngModel)]="eventLocation" class="form-control" type="text" name="input_eventLocation" id="input_eventLocation" required>
+  </div>
+  <div class="form-group">
+    <label for="textArea_eventDescription">Description</label>
+    <textarea [(ngModel)]="eventDescription" class="form-control" name="textArea_eventDescription" id="textArea_eventDescription"
+      required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="input_eventCost">Cost</label>
+    <input [(ngModel)]="eventCost" class="form-control" type="text" name="input_eventCost" id="input_eventCost" required>
+  </div>
+  <div class="form-group">
+    <label for="input_gradingFormat">Grading Format</label>
+    <input [(ngModel)]="eventGradeFormat" class="form-control" type="text" name="input_gradingFormat" id="input_gradingFormat"
+      required>
+  </div>
+  <div class="form-group">
+      <label for="input_passingGrade">Passing Grade</label>
+      <input [(ngModel)]="eventPassingGrade" class="form-control" type="text" name="input_passingGrade" id="input_passingGrade"
+        required>
+    </div>
+  <div class="form-group">
+    <label for="select_eventType">Event Type</label>
+    <select [(ngModel)]="eventType" class="form-control" name="select_eventType" id="select_eventType" required>
+      <option value="1">University Course</option>
+      <option value="2">Seminar</option>
+      <option value="3">Certification Perparation Class</option>
+      <option value="4">Certification</option>
+      <option value="5">Technical Training</option>
+      <option value="6">Other</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="textArea_workJustification">Work-related Justification</label>
+    <textarea [(ngModel)]="requestJustification" class="form-control" name="textArea_workJustification" id="textArea_workJustification"
+      required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="input_eventRelatedAttachments">Event-related Attachments</label>
+    <input class="form-control" type="file" name="input_eventRelatedAttachments" id="input_eventRelatedAttachements" accept=".pdf,.png,.jpeg,.jpg,.txt,.doc">
+    <small>Supported types: .pdf, .png, .jpeg, .jpg, .txt, .doc, .docx</small>
+  </div>
+  <div class="form-group">
+    <label for="input_approvals">Approvals</label>
+    <input class="form-control" type="file" name="input_approvals" id="input_approvals" accept=".msg">
+    <small>Supported type: .msg</small>
+  </div>
+  <div class="form-group">
+    <label for="input_approvalType">Approval Type</label>
+    <input class="form-control" type="text" name="input_approvalType" id="input_approvalType">
+  </div>
+  <div class="form-group">
+    <label for="input_workTimeMissed">Work Time Missed</label>
+    <input [(ngModel)]="requestHoursMissed" class="form-control" type="text" name="input_workTimeMissed" id="input_workTimeMissed">
+  </div>
+  <div class="form-group">
+    <button (click)="submitRequest() "class="btn btn-primary" type="submit">Submit</button>
+    <a routerLink="/dashboard" class="btn">Cancel</a>
+  </div>
+</form>

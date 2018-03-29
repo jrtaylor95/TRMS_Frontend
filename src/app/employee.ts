@@ -1,7 +1,7 @@
-export class Employee {
+export interface Employee {
     readonly id: number;
     type: number;
-    department: string;
+    department: number;
     firstName: string;
     lastName: string;
     email: string;

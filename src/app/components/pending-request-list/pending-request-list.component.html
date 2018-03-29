@@ -1,0 +1,14 @@
+<tab heading="Pending Requests" id="tab_pendingRequests">
+    <table class="table">
+      <thead>
+  
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of requests">
+          <td>{{request.firstName + ' ' request.lastName}}</td>
+          <td>{{request.eventType}}</td>
+          <td><a routerLink="/request/{{request.id}}">View</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </tab>

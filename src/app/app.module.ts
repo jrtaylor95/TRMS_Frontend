@@ -3,11 +3,17 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { LoginComponent } from './login/login.component';
+import { ModalModule } from 'ng-bootstrap/modal';
+import { TabsModule } from 'ng-bootstrap/tabs';
+import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginService } from './login.service';
+import { AuthenticationService } from './services/authentication.service';
+import { MyRequestListComponent } from './components/my-request-list/my-request-list.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PendingRequestListComponent } from './components/pending-request-list/pending-request-list.component';
+import { ComponentsModule } from './components/components.module';
 
 const appRoutes: Routes = [
 
@@ -15,16 +21,18 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ModalModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    TabsModule.forRoot(),
+    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
+    ComponentsModule
   ],
-  providers: [LoginService],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
