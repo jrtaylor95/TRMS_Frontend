@@ -6,6 +6,7 @@ import { Request } from '../../request';
 import { Event } from '../../event';
 import { Router } from '@angular/router';
 import { Employee } from '../../employee';
+import { UtilService } from '../../services/util.service';
 
 @Component({
   selector: 'app-new-request',
@@ -30,10 +31,15 @@ export class NewRequestComponent implements OnInit {
   eventGradeFormat?: string;
   eventPassingGrade?: string;
 
+
+  reimbursementPercentages: Object;
+  availableReimbursementAmount: number;
+
   constructor(
     private requestService: RequestService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private utilService: UtilService
   ) { }
 
   ngOnInit() {
@@ -41,6 +47,20 @@ export class NewRequestComponent implements OnInit {
     this.employeeEmail = this.employee.email;
     this.employeeFirstName = this.employee.firstName;
     this.employeeLastName = this.employee.lastName;
+
+    this.getReimbursements();
+  }
+
+  getReimbursements() {
+    this.utilService.getReimbursements().subscribe(data => {
+      this.reimbursementPercentages = data;
+    });
+  }
+
+  updateReimbursementAmount() {
+    if (this.eventType !== undefined) {
+      this.availableReimbursementAmount = Number(this.eventCost) * (this.reimbursementPercentages[this.eventType] / 100);
+    }
   }
 
   submitRequest() {

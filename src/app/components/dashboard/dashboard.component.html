@@ -1,6 +1,5 @@
 <div class="container">
-  <tabset>
-    <app-my-request-list></app-my-request-list>
-    <app-pending-request-list *ngIf="canApprove"></app-pending-request-list>
-  </tabset>
+  <app-my-request-list></app-my-request-list>
+  <app-pending-request-list *ngIf="canApprove"></app-pending-request-list>
+  <button (click)="logOut()" class="btn">Log Out</button>
 </div>

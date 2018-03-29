@@ -16,6 +16,7 @@ export class RequestDetailComponent implements OnInit {
 
   reason?: string;
   rejected: boolean;
+  canApprove: boolean;
   request: Request;
   employee: Employee;
   event: Event;
@@ -37,6 +38,9 @@ export class RequestDetailComponent implements OnInit {
         this.employee = data[2];
         this.loading = true;
       });
+
+      this.canApprove = JSON.parse(localStorage.getItem('employee')).type > 1 ||
+      JSON.parse(localStorage.getItem('employee')).department === 4;
   }
 
   acceptRequest() {

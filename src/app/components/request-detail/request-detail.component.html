@@ -16,26 +16,28 @@
   <h6>Cost</h6>
   <p>{{event.cost | currency:'USD'}}</p>
   <h6>Grading Format</h6>
-  <p>{{event.gradeFormat}}</p>
+  <p>{{event.gradingFormat}}</p>
   <h6>Description</h6>
-  <p>{{event.Description}}</p>
+  <p>{{event.description}}</p>
   <h5>Request Informaiton</h5>
   <h6>Justification</h6>
-  <p>{{request.justification}}</p>
+  <p>{{request.workJustification}}</p>
   <h6>Hours Missed</h6>
   <p>{{request.hoursMissed}}</p>
   <h6>Attachments</h6>
   <div *ngIf="!rejected; else elseBlock">
-    <button (click)="acceptRequest()" class="btn btn-primary">Accept</button>
-    <button (click)="toggleRejected()" class="btn">Reject</button>
+    <div *ngIf="canApprove">
+      <button (click)="acceptRequest()" class="btn btn-primary">Accept</button>
+      <button (click)="toggleRejected()" class="btn">Reject</button>
+    </div>
     <a routerLink="/dashboard" class="btn">Cancel</a>
   </div>
   <ng-template #elseBlock>
     <form action="">
-      <div class="form-group">
+      <span class="form-group">
         <label for="txtArea_reject">Reason:</label>
         <textarea [(ngModel)]="reason" class="form-control" name="txtArea_reject" id="txtArea_reject" cols="30" rows="10"></textarea>
-      </div>
+      </span>
       <div class="form-group">
         <button (click)="rejectRequest()" class="btn btn-primary">Reject</button>
         <button (click)="toggleRejected()" class="btn">Cancel</button>

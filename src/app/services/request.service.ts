@@ -14,12 +14,13 @@ export class RequestService {
   constructor(private http: HttpClient) { }
 
   getMyRequests(): Observable<Array<RequestSummary>> {
-    return this.http.get<Array<RequestSummary>>(this.requestUrl);
+    const body = new HttpParams().set('myId', JSON.parse(localStorage.getItem('employee')).id);
+    return this.http.get<Array<RequestSummary>>(this.requestUrl + '?' + body.toString());
   }
 
   getPendingRequests(): Observable<Array<RequestSummary>> {
     const body = new HttpParams().set('employeeId', JSON.parse(localStorage.getItem('employee')).id);
-    return this.http.get<Array<RequestSummary>>(this.requestUrl + body);
+    return this.http.get<Array<RequestSummary>>(this.requestUrl + '?' + body.toString());
   }
 
   getRequest(id: number): Observable<[Request, Event, Employee]> {

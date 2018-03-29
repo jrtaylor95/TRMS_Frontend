@@ -1,17 +1,17 @@
-<tab heading="My Requests" id="tab_myRequests">
-  <div *ngIf="!loading">
-    <table class="table">
-      <thead>
-        <th>Event</th>
-        <th></th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let request of myRequests">
-          <td>{{request.eventType}}</td>
-          <td><a routerLink="/request/{{request.id}}">View</a></td>
-        </tr>
-      </tbody>
-    </table>
-    <a routerLink="/new" class="btn btn-primary">New Request</a>
-  </div>
-</tab>
+<div>
+  <table class="table">
+    <thead>
+      <th>Event</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of myRequests">
+        <td>{{request.eventType}}</td>
+        <td>
+          <a routerLink="/request/{{request.id}}">View</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/new" class="btn btn-primary">New Request</a>
+</div>

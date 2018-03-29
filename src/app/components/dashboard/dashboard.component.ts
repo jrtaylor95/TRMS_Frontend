@@ -17,9 +17,11 @@ export class DashboardComponent implements OnInit {
     const employee: Employee = JSON.parse(localStorage.getItem('employee'));
 
     this.canApprove = employee.type > 1;
-    // if (localStorage.getItem('employee') === null) {
-    //   this.router.navigate(['/login']);
-    // }
+  }
+
+  logOut() {
+    localStorage.removeItem('employee');
+    this.router.navigate(['/login']);
   }
 
 }

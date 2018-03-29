@@ -39,8 +39,12 @@
   </div>
   <div class="form-group">
     <label for="input_eventCost">Cost</label>
-    <input [(ngModel)]="eventCost" class="form-control" type="text" name="input_eventCost" id="input_eventCost" required>
+    <input (blur)="updateReimbursementAmount()" [(ngModel)]="eventCost" class="form-control" type="text" name="input_eventCost" id="input_eventCost" required>
   </div>
+  <div class="form-group">
+      <label for="input_aviableAmount">Cost</label>
+      <input class="form-control" type="text" name="input_availableAmount" id="input_availableAmount" value="{{availableReimbursementAmount}}"disabled>
+    </div>
   <div class="form-group">
     <label for="input_gradingFormat">Grading Format</label>
     <input [(ngModel)]="eventGradeFormat" class="form-control" type="text" name="input_gradingFormat" id="input_gradingFormat"
@@ -53,7 +57,7 @@
     </div>
   <div class="form-group">
     <label for="select_eventType">Event Type</label>
-    <select [(ngModel)]="eventType" class="form-control" name="select_eventType" id="select_eventType" required>
+    <select (blur)="updateReimbursementAmount()"[(ngModel)]="eventType" class="form-control" name="select_eventType" id="select_eventType" required>
       <option value="1">University Course</option>
       <option value="2">Seminar</option>
       <option value="3">Certification Perparation Class</option>
